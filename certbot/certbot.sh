@@ -9,7 +9,7 @@ if [ -z "$DOMAINS" ]; then
   exit 1;
 fi
 
-if [ -z "$WAITING_NGINX" ]; then
+if [ "$WAITING_NGINX" != "0" ]; then
   until nc -z nginx 80; do
     echo "Waiting for nginx to start..."
     sleep 5s & wait ${!}
